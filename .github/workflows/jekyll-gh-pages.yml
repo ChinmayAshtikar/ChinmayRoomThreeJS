@@ -32,9 +32,9 @@ jobs:
         run: npm install
 
       - name: Build project
-        run: |
-          echo "NODE_OPTIONS=--openssl-legacy-provider" >> $GITHUB_ENV
-          npm run build
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
